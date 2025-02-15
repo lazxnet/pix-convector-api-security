@@ -1,15 +1,24 @@
 {
   "name": "pix-convector-api-security",
   "version": "1.0.0",
-  "description": "",
+  "description": "API para conversión y validación segura de imágenes",
   "main": "index.js",
-  "type": "module",  
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js" 
+  "type": "module",
+  "engines": {
+    "node": ">=17.9.1",
+    "npm": ">=8.11.0"
   },
-  "keywords": [],
-  "author": "",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm install"
+  },
+  "keywords": [
+    "image-processing",
+    "security",
+    "conversion"
+  ],
+  "author": "Tu Nombre",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
@@ -18,5 +27,8 @@
     "multer": "^1.4.5-lts.1",
     "sharp": "^0.33.5",
     "uuid": "^11.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
   }
 }

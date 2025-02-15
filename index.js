@@ -5,9 +5,18 @@ import multer from "multer";
 import { fileTypeFromBuffer } from "file-type";
 
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 
-app.use(cors());
+// Configuración para proxy de Render
+app.set('trust proxy', true);
+
+app.use(cors({
+  origin: process.env.NODE_ENV === 'production'
+    ? 'pix-convector.vercel.app' 
+    : '*'
+}));
+
+
 app.use(express.json());
 
 // Configuración de multer
