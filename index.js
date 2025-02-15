@@ -17,10 +17,10 @@ app.use(cors({
         'https://pix-convector-api-security.onrender.com' // Backend en Render (si necesitas acceso directo)
       ]
     : ['http://localhost:5173'], // Desarrollo con Vite
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
-  credentials: true,
-  optionsSuccessStatus: 204
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type'],
+  //credentials: true,
+  //optionsSuccessStatus: 204
 }));
 
 app.use(express.json());
