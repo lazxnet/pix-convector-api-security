@@ -12,10 +12,16 @@ app.set('trust proxy', true);
 
 app.use(cors({
   origin: process.env.NODE_ENV === 'production'
-    ? 'pix-convector.vercel.app' 
-    : '*'
+    ? [
+        'https://pix-convector.vercel.app', // Frenteend en Vercel
+        'https://pix-convector-api-security.onrender.com' // Backend en Render (si necesitas acceso directo)
+      ]
+    : ['http://localhost:5173'], // Desarrollo con Vite
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+  credentials: true,
+  optionsSuccessStatus: 204
 }));
-
 
 app.use(express.json());
 
