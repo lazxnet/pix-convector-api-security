@@ -83,6 +83,10 @@ app.post("/api/validate-file", upload.single("file"), async (req, res) => {
       console.log("No se proporcionó ningún archivo")
       return res.status(400).json({ error: "No se ha proporcionado ningún archivo", valid: false })
     }
+    
+    if (req.method !== "POST") {
+      return res.status(405).json({ error: "Método no permitido" });
+    }
   
     try {
       const fileType = await fileTypeFromBuffer(req.file.buffer)
